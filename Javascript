@@ -1,0 +1,11 @@
+const NUM = 8;
+let nums = [];
+let total = 0;
+
+for (let i = 0; i < NUM; i++) {
+    let num = parseInt(prompt("Por favor, introduzca el número: "));
+    nums.push(num);
+    total += num;
+}
+
+console.log("El total de números es", total);

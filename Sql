@@ -1,0 +1,15 @@
+DECLARE @NUM INT = 8;
+DECLARE @nums TABLE (num INT);
+DECLARE @total INT = 0;
+DECLARE @i INT = 1;
+
+WHILE @i <= @NUM
+BEGIN
+    DECLARE @input INT;
+    SET @input = CAST(READLINE('Por favor, introduzca el número: ') AS INT);
+    INSERT INTO @nums (num) VALUES (@input);
+    SET @total = @total + @input;
+    SET @i = @i + 1;
+END
+
+SELECT 'El total de números es ' + CAST(@total AS VARCHAR);
