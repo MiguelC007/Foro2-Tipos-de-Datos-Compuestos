@@ -9,3 +9,30 @@ for (let i = 0; i < NUM; i++) {
 }
 
 console.log("El total de números es", total);
+
+
+
+
+
+
+const N = 2;
+const M = 4;
+let discos = new Array(N);
+for (let i = 0; i < N; i++) {
+    discos[i] = new Array(M);
+}
+
+for (let fila = 0; fila < N; fila++) {
+    for (let col = 0; col < M; col++) {
+        discos[fila][col] = parseFloat(prompt(`Ingrese el precio de disco para fila ${fila+1}, columna ${col+1}: `));
+    }
+}
+
+// Visualizar la tabla
+for (let fila = 0; fila < N; fila++) {
+    let filaStr = `Precio fila ${fila+1}: `;
+    for (let col = 0; col < M; col++) {
+        filaStr += discos[fila][col] + " ";
+    }
+    console.log(filaStr);
+}

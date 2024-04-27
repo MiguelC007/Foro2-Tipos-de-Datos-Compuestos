@@ -1,3 +1,4 @@
+// 1 Dimension
 using System;
 
 class Program
@@ -16,5 +17,35 @@ class Program
         }
 
         Console.WriteLine("El total de números es " + total);
+    }
+}
+
+
+
+
+
+// 2 Dimensiones
+using System;
+
+class Program {
+    static void Main() {
+        const int N = 2;
+        const int M = 4;
+        float[,] discos = new float[N,M];
+        for (int fila = 0; fila < N; fila++) {
+            for (int col = 0; col < M; col++) {
+                Console.Write($"Ingrese el precio de disco para fila {fila+1}, columna {col+1}: ");
+                discos[fila, col] = float.Parse(Console.ReadLine());
+            }
+        }
+
+        // Visualizar la tabla
+        for (int fila = 0; fila < N; fila++) {
+            Console.Write($"Precio fila {fila+1}: ");
+            for (int col = 0; col < M; col++) {
+                Console.Write(discos[fila, col] + " ");
+            }
+            Console.WriteLine();
+        }
     }
 }

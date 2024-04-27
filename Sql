@@ -1,3 +1,4 @@
+/* 1 Dimension */
 DECLARE @NUM INT = 8;
 DECLARE @nums TABLE (num INT);
 DECLARE @total INT = 0;
@@ -13,3 +14,46 @@ BEGIN
 END
 
 SELECT 'El total de números es ' + CAST(@total AS VARCHAR);
+
+
+
+
+
+/* 2 Dimensiones */
+DECLARE @N INT = 2;
+DECLARE @M INT = 4;
+DECLARE @discos FLOAT[][];
+
+SET @discos = ARRAY(
+    ARRAY(0, 0, 0, 0),
+    ARRAY(0, 0, 0, 0)
+);
+
+DECLARE @fila INT = 1;
+WHILE @fila <= @N
+BEGIN
+    DECLARE @col INT = 1;
+    WHILE @col <= @M
+    BEGIN
+        DECLARE @input FLOAT;
+        SET @input = CAST(READLINE('Ingrese el precio de disco para fila ' + CAST(@fila AS VARCHAR) + ', columna ' + CAST(@col AS VARCHAR) + ': ') AS FLOAT);
+        SET @discos[@fila][@col] = @input;
+        SET @col = @col + 1;
+    END
+    SET @fila = @fila + 1;
+END
+
+DECLARE @output VARCHAR(MAX);
+SET @fila = 1;
+WHILE @fila <= @N
+BEGIN
+    SET @output = 'Precio fila ' + CAST(@fila AS VARCHAR) + ': ';
+    DECLARE @col INT = 1;
+    WHILE @col <= @M
+    BEGIN
+        SET @output = @output + CAST(@discos[@fila][@col] AS VARCHAR) + ' ';
+        SET @col = @col + 1;
+    END
+    PRINT @output;
+    SET @fila = @fila + 1;
+END

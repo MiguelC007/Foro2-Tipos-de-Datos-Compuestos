@@ -16,3 +16,35 @@ public class Main {
         System.out.println("El total de números es " + total);
     }
 }
+
+
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        final int N = 2;
+        final int M = 4;
+        float[][] discos = new float[N][M];
+        Scanner scanner = new Scanner(System.in);
+
+        for (int fila = 0; fila < N; fila++) {
+            for (int col = 0; col < M; col++) {
+                System.out.print("Ingrese el precio de disco para fila " + (fila + 1) + ", columna " + (col + 1) + ": ");
+                discos[fila][col] = scanner.nextFloat();
+            }
+        }
+
+        // Visualizar la tabla
+        for (int fila = 0; fila < N; fila++) {
+            System.out.print("Precio fila " + (fila + 1) + ": ");
+            for (int col = 0; col < M; col++) {
+                System.out.print(discos[fila][col] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+

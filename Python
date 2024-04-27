@@ -1,3 +1,5 @@
+#Arreglos de una dimension
+
 NUM = 8
 nums = []
 
@@ -7,3 +9,20 @@ for i in range(NUM):
 
 total = sum(nums)
 print("El total de números es", total)
+
+#Arreglos de dos dimensiones
+
+N = 2
+M = 4
+discos = [[0]*M for _ in range(N)]
+
+for fila in range(N):
+    for col in range(M):
+        discos[fila][col] = float(input(f"Ingrese el precio de disco para fila {fila+1}, columna {col+1}: "))
+
+# Visualizar la tabla
+for fila in range(N):
+    print(f"Precio fila {fila+1}: ", end="")
+    for col in range(M):
+        print(discos[fila][col], end=" ")
+    print()
