@@ -57,3 +57,78 @@ BEGIN
     PRINT @output;
     SET @fila = @fila + 1;
 END
+
+
+
+/* Arrays con parametros en funciones */
+
+DECLARE @a FLOAT[];
+DECLARE @n INT;
+
+CREATE OR REPLACE FUNCTION leerArray(@a FLOAT[]) RETURNS INT AS $$
+BEGIN
+    SET @n = 0;
+    RAISE NOTICE 'Introduzca datos. Para terminar, pulse 0:';
+    FOR i IN 1..100 LOOP
+        RAISE NOTICE '% : ', i;
+        SET @a[i] = CAST(READLINE() AS FLOAT);
+        IF @a[i] = 0 THEN
+            EXIT;
+        END IF;
+        SET @n = @n + 1;
+    END LOOP;
+    RETURN @n;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION imprimirArray(@a FLOAT[], @n INT) RETURNS VOID AS $$
+BEGIN
+    FOR i IN 1..@n LOOP
+        RAISE NOTICE '% : %', i, @a[i];
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT leerArray(@a);
+CALL imprimirArray(@a, @n);
+
+
+
+/* Estructura de Objetos */
+
+CREATE TYPE Empleado AS (
+    id INTEGER,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    salario FLOAT,
+    edad INTEGER
+);
+
+DECLARE empleado Empleado;
+SET empleado = (1, 'Juan', 'Perez', 3000.0, 30);
+
+SELECT empleado;
+
+
+
+/* Enumeraciones */ 
+
+
+DECLARE @rotulador INT;
+SET @rotulador = 3; -- ROJO
+PRINT 'El color es ' + CAST(@rotulador AS VARCHAR);
+DECLARE @x INT;
+SET @x = CAST(READLINE('Introduzca un valor: ') AS INT);
+
+SET @rotulador = @x;
+
+IF @rotulador = 3
+    PRINT 'El rotulador es rojo';
+ELSE IF @rotulador = 2
+    PRINT 'El rotulador es verde';
+ELSE IF @rotulador = 1
+    PRINT 'El rotulador es azul';
+ELSE IF @rotulador = 0
+    PRINT 'El rotulador es blanco';
+ELSE
+    PRINT 'El color es indefinido';

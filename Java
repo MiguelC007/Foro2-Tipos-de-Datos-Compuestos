@@ -38,13 +38,118 @@ public class Main {
             }
         }
 
-        // Visualizar la tabla
         for (int fila = 0; fila < N; fila++) {
             System.out.print("Precio fila " + (fila + 1) + ": ");
             for (int col = 0; col < M; col++) {
                 System.out.print(discos[fila][col] + " ");
             }
             System.out.println();
+        }
+    }
+}
+
+
+
+//Arrays con parametros en funciones
+
+import java.util.Scanner;
+
+public class Main {
+    static final int LONG = 100;
+
+    public static void main(String[] args) {
+        double[] a = new double[LONG];
+        int n = 0;
+
+        n = leerArray(a);
+        imprimirArray(a, n);
+    }
+
+    static int leerArray(double[] a) {
+        int n = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduzca datos. Para terminar, pulse 0:");
+        for (int i = 0; i < LONG; i++) {
+            System.out.print(i + ": ");
+            a[i] = scanner.nextDouble();
+            if (a[i] == 0) {
+                break;
+            }
+            n++;
+        }
+        return n;
+    }
+
+    static void imprimirArray(double[] a, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println("\t" + i + ": " + a[i]);
+        }
+    }
+}
+
+
+
+//Estructura de Objetos
+
+public class Empleado {
+    public int id;
+    public String nombre;
+    public String apellido;
+    public float salario;
+    public int edad;
+
+    public Empleado(int id, String nombre, String apellido, float salario, int edad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.salario = salario;
+        this.edad = edad;
+    }
+
+    public static void main(String[] args) {
+        Empleado empleado = new Empleado(1, "Juan", "Perez", 3000.0f, 30);
+        System.out.println("Empleado ID: " + empleado.id);
+        System.out.println("Nombre completo: " + empleado.nombre + " " + empleado.apellido);
+        System.out.println("Salario: " + empleado.salario);
+        System.out.println("Edad: " + empleado.edad);
+    }
+}
+
+
+
+//Enumeraciones
+
+
+import java.util.Scanner;
+
+public class Main {
+    enum Color {
+        BLANCO, AZUL, VERDE, ROJO
+    }
+
+    public static void main(String[] args) {
+        Color rotulador = Color.ROJO;
+        System.out.println("\nEl color es " + rotulador);
+        System.out.print("Introduzca un valor: ");
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        rotulador = Color.values()[x];
+
+        switch (rotulador) {
+            case ROJO:
+                System.out.println("El rotulador es rojo");
+                break;
+            case VERDE:
+                System.out.println("El rotulador es verde");
+                break;
+            case AZUL:
+                System.out.println("El rotulador es azul");
+                break;
+            case BLANCO:
+                System.out.println("El rotulador es blanco");
+                break;
+            default:
+                System.out.println("El color es indefinido");
         }
     }
 }

@@ -22,9 +22,78 @@ for fila in range(N):
     for col in range(M):
         discos[fila][col] = float(input(f"Ingrese el precio de disco para fila {fila+1}, columna {col+1}: "))
 
-# Visualizar la tabla
 for fila in range(N):
     print(f"Precio fila {fila+1}: ", end="")
     for col in range(M):
         print(discos[fila][col], end=" ")
     print()
+
+
+
+
+#Arrays con parametros en funciones
+def leer_array(a, n):
+    n = 0
+    print("Introduzca datos. Para terminar, pulse 0:")
+    for i in range(100):
+        print(i, ": ", end="")
+        a[i] = float(input())
+        if a[i] == 0:
+            break
+        n += 1
+    return n
+
+def imprimir_array(a, n):
+    for i in range(n):
+        print("\t", i, ":", a[i])
+
+a = [0.0] * 100
+n = 0
+n = leer_array(a, n)
+print("El array tiene elementos:\n")
+imprimir_array(a, n)
+
+
+
+#Estructura de Objetos
+
+class Empleado:
+    def __init__(self, id, nombre, apellido, salario, edad):
+        self.id = id
+        self.nombre = nombre
+        self.apellido = apellido
+        self.salario = salario
+        self.edad = edad
+
+empleado = Empleado(1, "Juan", "Perez", 3000.0, 30)
+print("Empleado ID:", empleado.id)
+print("Nombre completo:", empleado.nombre, empleado.apellido)
+print("Salario:", empleado.salario)
+print("Edad:", empleado.edad)
+
+
+
+
+#Enumeraciones
+
+class Color:
+    BLANCO = 0
+    AZUL = 1
+    VERDE = 2
+    ROJO = 3
+
+rotulador = Color.ROJO
+print("\nEl color es", rotulador)
+x = int(input("Introduzca un valor: "))
+rotulador = Color(x)
+
+if rotulador == Color.ROJO:
+    print("El rotulador es rojo")
+elif rotulador == Color.VERDE:
+    print("El rotulador es verde")
+elif rotulador == Color.AZUL:
+    print("El rotulador es azul")
+elif rotulador == Color.BLANCO:
+    print("El rotulador es blanco")
+else:
+    print("El color es indefinido")

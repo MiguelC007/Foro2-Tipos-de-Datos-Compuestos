@@ -37,3 +37,94 @@ for (let fila = 0; fila < N; fila++) {
     }
     console.log(filaStr);
 }
+
+
+
+
+
+//Arrays con parametros en funciones
+
+function leerArray(a) {
+    let n = 0;
+    console.log("Introduzca datos. Para terminar, pulse 0:");
+    for (let i = 0; i < 100; i++) {
+        let input = parseFloat(prompt(i + ": "));
+        if (input === 0 || isNaN(input)) {
+            break;
+        }
+        a[i] = input;
+        n++;
+    }
+    return n;
+}
+
+function imprimirArray(a, n) {
+    for (let i = 0; i < n; i++) {
+        console.log("\t" + i + ": " + a[i]);
+    }
+}
+
+let a = new Array(100).fill(0);
+let n = leerArray(a);
+console.log("El array tiene elementos:\n");
+imprimirArray(a, n);
+
+
+
+
+
+//Estructura de Objetos
+
+class Empleado {
+    constructor(id, nombre, apellido, salario, edad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.salario = salario;
+        this.edad = edad;
+    }
+}
+
+
+let empleado = new Empleado(1, "Juan", "Perez", 3000.0, 30);
+console.log("Empleado ID:", empleado.id);
+console.log("Nombre completo:", empleado.nombre, empleado.apellido);
+console.log("Salario:", empleado.salario);
+console.log("Edad:", empleado.edad);
+
+
+
+
+
+
+//Enumeraciones
+
+
+const Color = {
+    BLANCO: 0,
+    AZUL: 1,
+    VERDE: 2,
+    ROJO: 3
+};
+
+let rotulador = Color.ROJO;
+console.log("\nEl color es " + rotulador);
+let x = parseInt(prompt("Introduzca un valor: "));
+rotulador = x;
+
+switch (rotulador) {
+    case Color.ROJO:
+        console.log("El rotulador es rojo");
+        break;
+    case Color.VERDE:
+        console.log("El rotulador es verde");
+        break;
+    case Color.AZUL:
+        console.log("El rotulador es azul");
+        break;
+    case Color.BLANCO:
+        console.log("El rotulador es blanco");
+        break;
+    default:
+        console.log("El color es indefinido");
+}

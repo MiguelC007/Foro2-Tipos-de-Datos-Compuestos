@@ -39,13 +39,120 @@ class Program {
             }
         }
 
-        // Visualizar la tabla
         for (int fila = 0; fila < N; fila++) {
             Console.Write($"Precio fila {fila+1}: ");
             for (int col = 0; col < M; col++) {
                 Console.Write(discos[fila, col] + " ");
             }
             Console.WriteLine();
+        }
+    }
+}
+
+
+
+//Arrays con parametros en funciones
+
+using System;
+
+class Program {
+    const int LONG = 100;
+
+    static void Main() {
+        double[] a = new double[LONG];
+        int n = 0;
+
+        n = leerArray(a);
+        imprimirArray(a, n);
+    }
+
+    static int leerArray(double[] a) {
+        int n = 0;
+        Console.WriteLine("Introduzca datos. Para terminar, pulse 0:");
+        for (int i = 0; i < LONG; i++) {
+            Console.Write(i + ": ");
+            a[i] = double.Parse(Console.ReadLine());
+            if (a[i] == 0) {
+                break;
+            }
+            n++;
+        }
+        return n;
+    }
+
+    static void imprimirArray(double[] a, int n) {
+        for (int i = 0; i < n; i++) {
+            Console.WriteLine("\t" + i + ": " + a[i]);
+        }
+    }
+}
+
+
+
+
+//Estructura de Objetos
+
+using System;
+
+public class Empleado {
+    public uint id;
+    public string nombre;
+    public string apellido;
+    public float salario;
+    public int edad;
+
+    public Empleado(uint id, string nombre, string apellido, float salario, int edad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.salario = salario;
+        this.edad = edad;
+    }
+
+    public static void Main() {
+        Empleado empleado = new Empleado(1, "Juan", "Perez", 3000.0f, 30);
+        Console.WriteLine("Empleado ID: " + empleado.id);
+        Console.WriteLine("Nombre completo: " + empleado.nombre + " " + empleado.apellido);
+        Console.WriteLine("Salario: " + empleado.salario);
+        Console.WriteLine("Edad: " + empleado.edad);
+    }
+}
+
+
+
+
+//Enumeraciones
+
+using System;
+
+class Program {
+    enum Color {
+        BLANCO, AZUL, VERDE, ROJO
+    }
+
+    static void Main() {
+        Color rotulador = Color.ROJO;
+        Console.WriteLine("\nEl color es " + rotulador);
+        Console.Write("Introduzca un valor: ");
+        int x = int.Parse(Console.ReadLine());
+        rotulador = (Color)x;
+
+        switch (rotulador) {
+            case Color.ROJO:
+                Console.WriteLine("El rotulador es rojo");
+                break;
+            case Color.VERDE:
+                Console.WriteLine("El rotulador es verde");
+                break;
+            case Color.AZUL:
+                Console.WriteLine("El rotulador es azul");
+                break;
+            case Color.BLANCO:
+                Console.WriteLine("El rotulador es blanco");
+                break;
+            default:
+                Console.WriteLine("El color es indefinido");
+                break;
         }
     }
 }
