@@ -1,3 +1,4 @@
+// 1 Dimension
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,7 @@ public class Main {
 
 
 
-
+// 2 Dimensiones
 import java.util.Scanner;
 
 public class Main {

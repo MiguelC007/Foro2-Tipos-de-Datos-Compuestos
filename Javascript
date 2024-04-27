@@ -1,3 +1,4 @@
+// 1 Dimension
 const NUM = 8;
 let nums = [];
 let total = 0;
@@ -14,7 +15,7 @@ console.log("El total de números es", total);
 
 
 
-
+// 2 Dimensiones
 const N = 2;
 const M = 4;
 let discos = new Array(N);

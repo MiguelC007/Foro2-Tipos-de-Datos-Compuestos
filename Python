@@ -1,5 +1,4 @@
-#Arreglos de una dimension
-
+# 1 Dimension
 NUM = 8
 nums = []
 
@@ -10,8 +9,11 @@ for i in range(NUM):
 total = sum(nums)
 print("El total de números es", total)
 
-#Arreglos de dos dimensiones
 
+
+
+
+# 2 Dimensiones
 N = 2
 M = 4
 discos = [[0]*M for _ in range(N)]
